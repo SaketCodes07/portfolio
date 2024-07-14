@@ -227,3 +227,38 @@
         gap: 1rem; /* Adjust the gap between buttons in vertical layout */
     }
 }
+
+
+.navlist li button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    color: white; /* Set text color to white */
+    padding: 0;
+    text-decoration: none;
+    outline: none;
+    font-weight: bold; /* Make text bold */
+    position: relative; /* Ensure positioning for pseudo-element */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+.navlist li button::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #0091ff; /* Color of the underline */
+    transition: width 0.3s ease; /* Smooth transition for width change */
+}
+
+.navlist li button:hover::before {
+    width: 100%; /* Expand width to create underline effect */
+}
+
+.navlist li button:hover {
+    color: #0091ff; /* Change text color on hover */
+}
