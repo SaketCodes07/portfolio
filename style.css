@@ -69,7 +69,7 @@
     aspect-ratio: 1;
     display: grid;
     filter: drop-shadow(0 0 0 #fff);
-    animation: l2 2s infinite;
+    animation: l2 1s infinite;
 }
 
 .loader:before {
@@ -83,6 +83,9 @@
 @keyframes l2 {
     50% {
         filter: drop-shadow(0 0 10px #f00303);
+    }
+    100%{
+        filter: drop-shadow(0 0 20px #036af0)
     }
 }
 
