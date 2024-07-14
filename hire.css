@@ -1,109 +1,111 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+.heading {
+    color: aliceblue;
+    padding-bottom: 20px;
+    font-weight: 330;
+    margin-bottom: 40px;
+}
 
 body {
-    background-image:url(image/5570834.jpg);
-    
-   
-    
-    font-family: 'Arial', sans-serif;
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    padding: 10rem;
+    place-content: center;
+    background-image: url(image/5570834.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.input-container {
+    width: 300px;
+    margin-bottom: 40px; /* Spacing between containers */
+    border-radius: 5px;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.09);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.09);
+    background: white; /* Ensuring background color */
+}
+
+.input-container input {
+    width: 100%;
+    padding: 15px 20px;
+    border: none;
+    outline: none;
+    background: white;
+    border-radius: 5px;
+    color: #0051ff;
+    font-size: 14px;
+    transition: 0.3s ease;
+}
+
+.input-container label {
+    font-size: 18px;
+    background: transparent;
+    padding: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 35%; /* Adjusted value to move the label higher */
+    left: 20px;
+    transform: translateY(-50%);
+    transition: 0.4s ease;
+    color: #9d9d9d;
+}
+
+.input-container input:focus ~ label,
+.input-container input:not(:placeholder-shown) ~ label {
+    top: 0;
+    transform: translateY(-150%); /* Adjusted value to move the label higher */
+    scale: 0.9;
+    color: #0091ff;
+}
+
+.input-container .input-bg {
+    position: absolute;
+    inset: -2px;
+    z-index: -1;
+    border-radius: 5px;
+    transform: scaleX(0);
+    transition: 0.3s ease;
+}
+
+.input-container input:focus ~ .input-bg {
+    background: linear-gradient(to right, #0091ff, #ff00fb);
+    transform: scaleX(1);
+}
+
+.submit-container {
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+    margin-top: 20px;
 }
 
-.form-container {
-    
-    padding: 2rem;
-    border-radius: 0rem;
-    width: 90%;
-    max-width: 600px;
-    text-align: center;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-h2 {
-    color: #fff;
-    font-size: 2rem;
-    margin-bottom: 2rem;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-label {
-    color: #fff;
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-}
-
-input[type="text"],
-input[type="email"],
-textarea {
-    width: 100%;
-    padding: 0.8rem;
-    margin: 0.5rem 0;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 0.5rem;
-    background-color: #fff;
-}
-
-textarea {
-    resize: vertical;
-}
-
-button[type="submit"] {
-    background-color: #252525;
-    background-image: linear-gradient(to right, #252525, #3877FF);
-    color: #fff;
+.submit-container input[type="submit"] {
+    padding: 10px 15px;
     border: none;
-    padding: 1rem 2rem;
-    font-size: 1.1rem;
-    border-radius: 0.5rem;
+    border-radius: 5px;
+    background: linear-gradient(to right, #0091ff, #ff00fb);
+    color: white;
+    font-size: 14px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background 0.3s ease;
 }
 
-button[type="submit"]:hover {
-    background-color: #3877FF;
+.submit-container input[type="submit"]:hover {
+    background: linear-gradient(to right, #0051ff, #fb00ff);
 }
 
-@media (max-width: 768px) {
-    .form-container {
-        width: 100%;
-        padding: 1rem;
-    }
-}
 
-.toptext{
-    margin-left:3rem;
-    text-align:left;
-    
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
-/* HTML: <div class="loader"></div> */
-/* HTML: <div class="loader"></div> */
-.loader {
-    width: 80px;
-    aspect-ratio: 2;
-    border: 10px solid #000;
-    box-sizing: border-box;
-    background: 
-      linear-gradient(#fff 0 0) 2px 50% /10px 20px,
-      linear-gradient(#fff 0 0) 48px 50%/10px 20px,
-      linear-gradient(#000 0 0) center/100% 20px,
-      radial-gradient(farthest-side,#0000 calc(98% - 10px),#fff calc(100% - 10px) 98%,#0000),
-      #000;
-    background-repeat: no-repeat;
-    filter: blur(4px) contrast(10); 
-    animation: l15 0.6s infinite alternate;
-  }
-  @keyframes l15 {
-    0%,30% {background-position:2px  50%,48px 50%,center,0 0}
-    100%   {background-position:10px 50%,40px 50%,center,0 0}
-  }
