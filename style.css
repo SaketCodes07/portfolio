@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.portfolio-container {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+}
+
+.navlist {
+    display: flex;
+    gap: 3.5rem;
+    height: 15vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+}
+
+.navlist li {
+    list-style: none;
+}
+
+.navlist li a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1rem;
+    color: #fff;
+    position: relative;
+}
+
+.navlist li a::after,
+.navlist .active::after {
+    content: " ";
+    position: absolute;
+    background: #fff;
+    width: 100%;
+    height: .1rem;
+    left: 0;
+    bottom: -5px;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform .5s;
+}
+
+.navlist li a:hover::after,
+.navlist .active::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.left-container,
+.right-container {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+.loader {
+    --s: 1px;
+    --_d: calc(0.353*var(--s));
+    width: calc(var(--s) + var(--_d));
+    aspect-ratio: 1;
+    display: grid;
+    filter: drop-shadow(0 0 0 #fff);
+    animation: l2 1s infinite;
+}
+
+.loader:before {
+    content: "";
+    clip-path: polygon(var(--_d) 0,100% 0,100% calc(100% - var(--_d)),calc(100% - var(--_d)) 100%,0 100%,0 var(--_d));
+    background:
+      conic-gradient(from -90deg at var(--s) var(--_d),
+       #fff 135deg,#666 0 270deg,#aaa 0);
+}
+
+@keyframes l2 {
+    50% {
+        filter: drop-shadow(0 0 10px #f00303);
+    }
+    100%{
+        filter: drop-shadow(0 0 20px #036af0)
+    }
+}
+
+.left-container {
+    background: #252525;
+    width: 70%;
+    padding-left: 3rem;
+}
+
+.right-container {
+    background: linear-gradient(-45deg, #3877FF, #252525 70%);
+    width: 30%;
+}
+
+.icons .fa-brands {
+    color: #bbb;
+    font-size: 1.7rem;
+}
+
+.icons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+}
+
+.content {
+    margin-left: 4rem;
+}
+
+.content .intro {
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.content .intro span {
+    color: #5DB9EE;
+}
+
+.content h1 {
+    font-size: 3rem;
+    color: #5DB9EE;
+}
+
+.content .detail {
+    font-size: 1.1rem;
+    color: #fff;
+    max-width: 38rem;
+    margin: 1.1rem 0 3rem 0;
+    line-height: 1.8rem;
+}
+
+.btn-container {
+    display: flex;
+    gap: 1rem; /* Adjust the gap between buttons as needed */
+    margin-top: 1rem;
+}
+
+.btn-container form {
+    margin: 0;
+}
+
+.btn-container button {
+    border: .1rem solid #3877FF;
+    font-size: 1.1rem;
+    padding: .8rem 1.5rem;
+    border-radius: .5rem;
+    cursor: pointer;
+    transition: .5s ease;
+    background: transparent;
+    color: #3877FF;
+}
+
+.btn-container button:nth-child(1) {
+    background: #3877FF;
+    color: #252525;
+}
+
+.btn-container button:nth-child(1):hover {
+    background: transparent;
+    color: #3877FF;
+}
+
+.btn-container button.projectbutton {
+    background: transparent;
+    color: #3877FF;
+}
+
+.btn-container button.projectbutton:hover {
+    background: #5DB9EE;
+    color: #252525;
+}
+
+.icons .fa-brands:hover {
+    cursor: pointer;
+    background: linear-gradient(#fff, #3877FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.design .circle {
+    aspect-ratio: 1;
+    position: absolute;
+    border-radius: 50%;
+    top: 50%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    animation: glow 1s infinite alternate;
+}
+
+
+
+.circle:nth-child(2) {
+    width: 19rem;
+    background-image: url("image/WhatsApp Image 2024-07-13 at 13.22.38.jpeg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    border: .001rem solid #fff;
+    box-shadow: 0 0 1rem #fff, inset 0 0 1rem #fff, 0 0 1rem #3877FF, inset 0 0 2rem #3877FF, 0 0 1rem #3877FF, inset 0 0 1rem #3877FF;
+}
+
+@keyframes glow {
+    0% {
+        filter: drop-shadow(0 0 1px #3877FF);
+    }
+    50% {
+        filter: drop-shadow(0 0 1px #05a1fc);
+    }
+    
+    100% {
+        filter: drop-shadow(0 0 1px #0a37b4);
+    }
+}rgb(42, 65, 196)
+
+@media (max-width: 768px) {
+    .btn-container {
+        flex-direction: column;
+        gap: 1rem; /* Adjust the gap between buttons in vertical layout */
+    }
+}
+
+
+.navlist li button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    color: white; /* Set text color to white */
+    padding: 0;
+    text-decoration: none;
+    outline: none;
+    font-weight: bold; /* Make text bold */
+    position: relative; /* Ensure positioning for pseudo-element */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+.navlist li button::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #0091ff; /* Color of the underline */
+    transition: width 0.3s ease; /* Smooth transition for width change */
+}
+
+.navlist li button:hover::before {
+    width: 100%; /* Expand width to create underline effect */
+}
+
+.navlist li button:hover {
+    color: #0091ff; /* Change text color on hover */
+}
