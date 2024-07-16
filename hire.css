@@ -84,25 +84,36 @@ body {
 }
 
 .submit-container {
-    display: flex;
-    justify-content: center;
+    text-align: center;
     margin-top: 20px;
+    margin-right: 110px;
 }
 
-.submit-container input[type="submit"] {
-    padding: 10px 15px;
+.submit-container button {
+    background: linear-gradient(45deg, #000000, #0000FF);
     border: none;
     border-radius: 5px;
-    background: linear-gradient(to right, #0091ff, #ff00fb);
     color: white;
-    font-size: 14px;
+    padding: 10px 20px;
+    font-size: 16px;
     cursor: pointer;
-    transition: background 0.3s ease;
+    transition: background 0.3s, transform 0.3s;
 }
 
-.submit-container input[type="submit"]:hover {
-    background: linear-gradient(to right, #0051ff, #fb00ff);
+.submit-container button:hover {
+    background: linear-gradient(45deg, #0000FF, #000000);
+    transform: scale(1.05);
 }
+
+.submit-container button:active {
+    transform: scale(0.95);
+}
+
+.submit-container button:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 0, 255, 0.5);
+}
+
 
 
 @keyframes spin {
