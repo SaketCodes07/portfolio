@@ -8,10 +8,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+    <div id="res" style="color:green;font-size: 14px;"></div>
     <h1 class="heading">
         PLEASE ENTER YOUR DETAILS:
     </h1>
-    <form action="#" method="post" onsubmit="showLoading(event)">
+    <form id="form" action="#" method="post" onsubmit="showLoading(event)">
+        
         <div class="input-container">
             <input type="text" id="name" name="name" placeholder="" required autocomplete="off">
             <label for="name">Your Name:</label>
@@ -33,10 +35,38 @@
             <div class="input-bg"></div>
         </div>
         <div class="submit-container">
-            <input type="submit" value="SUBMIT">
+            <button name="btn">Submit</button>
         </div>
     </form>
 
-   
+    <script>
+        let url = 'https://script.google.com/macros/s/AKfycbznovw_vfCigj_We1rg3h7d0xtyz2y7D0Jp6a4Baa5M6fmMpmoiv-kq0Wn_z8qnL_Fq/exec'; 
+        let form = document.querySelector('#form');
+        
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();  // Prevent the default form submission behavior
+            
+            let submitButton = form.querySelector('[name="btn"]');
+            submitButton.textContent = "Submitting the form";
+            
+            let d = new FormData(form);
+            fetch(url, {
+                method: "POST",
+                body: d
+            })
+            .then((res) => res.text())
+            .then((finalRes) => {
+                submitButton.textContent = "Submit";
+                document.getElementById("res").innerHTML = finalRes;
+                
+                console.log(finalRes);
+            })
+            .catch((error) => {
+                submitButton.textContent = "Submit";
+                console.error('Error:', error);
+            });
+        });
+    </script>
 </body>
 </html>
+
