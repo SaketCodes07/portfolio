@@ -1,47 +1,84 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
 
-/* General Styles */
-body {
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* Base styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  position: relative;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
   background-image: url(image/5570834.jpg);
   background-size: cover;
   background-position: center;
-  background-color: #f2f2f2; /* Fallback color */
-  font-family: 'Poppins', sans-serif;
-  margin: 0;
+  background-color: #f2f2f2;
+  overflow: hidden;
 }
 
+/* Layout */
 .container {
+  width: 90%;
+  max-width: 1100px;
+  margin: auto;
+  padding: 2rem;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  width: 100%;
-  padding: 2rem;
+  flex-wrap: wrap;
+  backdrop-filter: blur(8px);
 }
 
+/* Text content */
 .content {
   max-width: 60%;
-}
-
-.text {
   color: aliceblue;
+  text-align: left;
 }
 
 .abt {
   color: rgb(6, 183, 253);
-  font-weight: 300;
+  font-weight: 500;
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
-/* Checkbox Styles */
-:root {
-  --duration: .4s;
+.text {
+  color: aliceblue;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  font-size: 1rem;
 }
 
+.highlight {
+  color: #00eaff;
+  font-weight: 500;
+}
+
+/* LinkedIn button */
+.btn-linkedin {
+  display: inline-block;
+  background: #0E76A8;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  border: 1px solid #084461;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+}
+
+.btn-linkedin:hover {
+  background-color: #084461;
+}
+
+/* Hire Me section */
 #app {
   display: flex;
   flex-direction: column;
@@ -51,42 +88,32 @@ body {
 
 .hire-text {
   color: aliceblue;
-  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.ht2 {
+  color: rgb(17, 255, 88);
   font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Checkbox Styles */
+:root {
+  --duration: 0.4s;
 }
 
 .checker {
   display: block;
-  font-size:15vmin; /* Reduced from 20vmin */
-  height: 0.75em; /* Reduced height */
-  width: 2em; /* Reduced width */
+  font-size: 15vmin;
+  height: 0.75em;
+  width: 2em;
   box-sizing: content-box;
-  padding: 0.1em; /* Reduced padding */
+  padding: 0.1em;
   border-radius: 0.25em;
   transition: transform var(--duration) ease;
   cursor: pointer;
-}
-
-.checkmark {
-  width: 0.75em; /* Reduced width */
-  height: 0.75em; /* Reduced height */
-  transition: transform var(--duration) ease;
-  transform: translateX(-.2em); /* Adjusted transform */
-  z-index: 5;
-}
-
-.checkmark svg {
-  display: block;
-  background: #e5e5e5;
-  transform: translateX(.2em); /* Adjusted transform */
-  border-radius: 0.15em;
-  transition: background-color var(--duration) ease, transform calc(var(--duration) * 1.5) ease;
-}
-
-.checkmark svg path {
-  stroke-dasharray: 90 90;
-  stroke-dashoffset: 90;
-  transition: stroke-dashoffset calc(var(--duration) / 3) linear calc(var(--duration) / 3);
 }
 
 .checkbox {
@@ -97,19 +124,7 @@ body {
   visibility: hidden;
 }
 
-.checkbox:checked ~ .checkmark {
-  transform: translate(1.4em); /* Adjusted transform */
-}
-
-.checkbox:checked ~ .checkmark svg {
-  background: #00ff80;
-  transform: translate(-.2em); /* Adjusted transform */
-}
-
-.checkbox:checked ~ .checkmark svg path {
-  stroke-dashoffset: 0;
-}
-
+/* BLUE GLOW checkbox background */
 .check-bg {
   position: absolute;
   top: 0;
@@ -119,6 +134,11 @@ body {
   border-radius: inherit;
   background: white;
   z-index: 2;
+  box-shadow: 0 0 10px rgba(0, 195, 255, 0.4);
+}
+
+.checker:hover .check-bg {
+  box-shadow: 0 0 16px rgba(0, 195, 255, 0.6);
 }
 
 .check-bg::before,
@@ -146,6 +166,44 @@ body {
   z-index: -1;
 }
 
+/* Checkmark visuals */
+.checkmark {
+  width: 0.75em;
+  height: 0.75em;
+  transition: transform var(--duration) ease;
+  transform: translateX(-0.2em);
+  z-index: 5;
+}
+
+.checkmark svg {
+  display: block;
+  background: #e5e5e5;
+  transform: translateX(0.2em);
+  border-radius: 0.15em;
+  transition: background-color var(--duration) ease, transform calc(var(--duration) * 1.5) ease, box-shadow 0.3s ease;
+}
+
+.checkmark svg path {
+  stroke-dasharray: 90 90;
+  stroke-dashoffset: 90;
+  transition: stroke-dashoffset calc(var(--duration) / 3) linear calc(var(--duration) / 3);
+}
+
+/* Checked state glow */
+.checkbox:checked ~ .checkmark {
+  transform: translate(1.4em);
+}
+
+.checkbox:checked ~ .checkmark svg {
+  background: #00ffcc;
+  transform: translate(-0.2em);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+}
+
+.checkbox:checked ~ .checkmark svg path {
+  stroke-dashoffset: 0;
+}
+
 .checker:active {
   transform: scale(0.85);
   transition-duration: calc(var(--duration) / 2);
@@ -155,40 +213,3 @@ body {
   transform: translateY(0) scale(0.8);
   opacity: 0.2;
 }
-
-/* Utility Styles */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  position: relative;
-}
-
-html {
-  height: 100%;
-}
-
-.ht2{
-  color: rgb(17, 255, 88);
-  margin-bottom: 1rem;
-  font-size: 1rem;
-}
-html {
-  margin: 40px auto;
-  text-align: center;
-}
-	.btn-linkedin {
-	  background: #0E76A8;
-	  border-radius: 0;
-	  color: #fff;
-	  border-width: 1px;
-	  border-style: solid;
-	  border-color: #084461;
-	}
-	.btn-linkedin:link, .btn-linkedin:visited {
-	  color: #fff;
-	}
-	.btn-linkedin:active, .btn-linkedin:hover {
-	  background: #084461;
-	  color: #fff;
-	}
