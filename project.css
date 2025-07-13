@@ -1,3 +1,6 @@
+
+
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 * {
@@ -218,4 +221,17 @@ body::before {
 @keyframes pulse {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.1); }
+}
+
+/* Highlight for the new ML project card */
+.project-card.ml-model {
+  border-left-color: #5DB9EE;
+  box-shadow: 0 0 20px #5DB9EE;
+  background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+.project-card.ml-model:hover {
+  box-shadow: 0 0 30px #5DB9EE, 0 0 40px #3877FF;
+  transform: translateY(-8px);
 }
