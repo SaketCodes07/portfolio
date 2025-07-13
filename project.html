@@ -1,102 +1,237 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Saket Saurabh | Projects</title>
 
-  <!-- CSS File -->
-  <link rel="stylesheet" href="project.css" />
 
-  <!-- Font Awesome Icons -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
-</head>
-<body>
-  <section class="projects-section">
-    <h2 class="section-heading">🚀 Projects</h2>
 
-    <!-- Floating glowing blobs -->
-    <div class="floating-elements">
-      <span></span><span></span><span></span><span></span><span></span>
-    </div>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-    <!-- Floating tech icons -->
-    <div class="floating-icons">
-      <i class="fab fa-html5"></i>
-      <i class="fab fa-css3-alt"></i>
-      <i class="fab fa-js"></i>
-      <i class="fab fa-python"></i>
-      <i class="fab fa-java"></i>
-      <i class="fab fa-android"></i>
-      <i class="fas fa-database"></i>
-      <i class="fas fa-robot"></i>
-      <i class="fas fa-cogs"></i>
-      <i class="fas fa-code"></i>
-      <i class="fas fa-mobile-alt"></i>
-    </div>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
 
-    <!-- Projects Grid -->
-    <div class="projects-grid">
+body {
+  background-color: #1a1a1a;
+  color: #fff;
+}
 
-      <div class="project-card">
-        <h3>FACE_RECOGNITION SYSTEM</h3>
-        <p><strong>Objective:</strong> Automate student attendance using facial recognition to eliminate proxy and manual entry.</p>
-        <p><strong>Built With:</strong> Python, OpenCV, face_recognition, NumPy</p>
-        <p><strong>Highlights:</strong> Real-time face detection from camera feed, automatic timestamped attendance logging in CSV.</p>
-        <p><strong>Role:</strong> Solo Developer (Back-end + AI)</p>
-        <a href="https://github.com/SAKET-SAURABH-07/FACE_RECOGNITION_SYSTEM" target="_blank">🔗 GitHub</a>
-      </div>
+/* Project Section */
+.projects-section {
+  padding: 4rem 2rem;
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
 
-      <div class="project-card">
-        <h3>PDF to Text Extractor</h3>
-        <p><strong>Objective:</strong> Convert scanned PDF documents to text via a clean web interface using OCR.</p>
-        <p><strong>Built With:</strong> HTML, CSS, JavaScript, Tesseract.js (OCR)</p>
-        <p><strong>Highlights:</strong> Drag & drop support, clean UI, supports multi-page PDFs.</p>
-        <p><strong>Role:</strong> Solo Developer (Front-end)</p>
-        <a href="https://saket-saurabh-07.github.io/pdf-extractor-saket/" target="_blank">🌐 Live Demo</a>
-      </div>
+.section-heading {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #5DB9EE;
+  margin-bottom: 3rem;
+}
 
-      <div class="project-card">
-        <h3>Portfolio Website</h3>
-        <p><strong>Objective:</strong> Create a responsive and professional personal website to showcase projects and resume.</p>
-        <p><strong>Built With:</strong> HTML, CSS, JavaScript</p>
-        <p><strong>Highlights:</strong> Dark-mode themed, animated interactions, optimized for mobile and desktop screens.</p>
-        <p><strong>Role:</strong> Solo Developer & Designer</p>
-        <p><strong>NOTE:</strong> You're currently viewing this site!</p>
-        <a href="https://saketcodes07.github.io/portfolio/" target="_blank">🌐 Visit Site</a>
-      </div>
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: auto;
+  position: relative;
+  z-index: 2;
+}
 
-      <div class="project-card">
-        <h3>Text to Speech Generator App</h3>
-        <p><strong>Objective:</strong> Android app to convert typed text into speech for general and visually impaired users.</p>
-        <p><strong>Built With:</strong> Kotlin, Android Studio, TextToSpeech API</p>
-        <p><strong>Highlights:</strong> Lightweight, clear voice output, intuitive UI</p>
-        <p><strong>Role:</strong> Android Developer (Solo)</p>
-        <a href="https://www.dropbox.com/scl/fi/dj7hgouyiwnpwlt4uytoz/texttospeech.apk?rlkey=obk1rwci66y99ydey8egxhovl&st=l0ah8li1&dl=0" target="_blank">⬇ Download APK</a>
-      </div>
+.project-card {
+  background: #252525;
+  border-left: 5px solid #3877FF;
+  padding: 1.5rem;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-      <!-- New ML Model project added here -->
-      <div class="project-card">
-        <h3>ML Model to Predict Future SGPA</h3>
-        <p><strong>Duration:</strong> Jun 2025 - Jul 2025</p>
-        <p><strong>Key Highlights:</strong></p>
-        <ul>
-          <li>Evaluated multiple regression models: Linear Regression, Ridge, Lasso, Random Forest, and SVR.</li>
-          <li>Selected best-performing model based on R² score and MSE.</li>
-          <li>Final model and scaler saved with Joblib for deployment.</li>
-          <li>Developed a user-friendly Streamlit web app allowing custom inputs via sliders.</li>
-          <li>Instant CGPA prediction and dynamic graph visualization comparing other students.</li>
-        </ul>
-        <p><strong>Built With:</strong> Machine Learning, Python, Streamlit, Joblib</p>
-        <p><strong>Dataset:</strong> Trained on 900+ students' data</p>
-      </div>
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px #3877FF;
+}
 
-    </div>
-  </section>
-</body>
-</html>
+.project-card h3 {
+  color: #5DB9EE;
+  font-size: 1.4rem;
+  margin-bottom: 0.6rem;
+}
+
+.project-card p {
+  color: #ccc;
+  line-height: 1.6;
+  margin-bottom: 0.6rem;
+}
+
+.project-card strong {
+  color: #5DB9EE;
+  font-weight: 600;
+}
+
+.project-card a {
+  display: inline-block;
+  margin-top: 0.6rem;
+  text-decoration: none;
+  color: #3877FF;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.project-card a:hover {
+  color: #5DB9EE;
+}
+
+/* Glowing blue background */
+body::before {
+  content: "";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 120vmax;
+  height: 120vmax;
+  background: radial-gradient(circle at center, rgba(56, 119, 255, 0.15), transparent 70%);
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+/* Floating glowing particles */
+.floating-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.floating-elements span {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: rgba(56, 119, 255, 0.3);
+  box-shadow: 0 0 20px rgba(56, 119, 255, 0.8);
+  border-radius: 50%;
+  animation: float 15s linear infinite;
+}
+
+.floating-elements span:nth-child(1) { top: 90%; left: 10%; animation-delay: 0s; }
+.floating-elements span:nth-child(2) { top: 100%; left: 25%; animation-delay: 3s; width: 15px; height: 15px; }
+.floating-elements span:nth-child(3) { top: 85%; left: 50%; animation-delay: 6s; width: 25px; height: 25px; }
+.floating-elements span:nth-child(4) { top: 95%; left: 75%; animation-delay: 1s; width: 10px; height: 10px; }
+.floating-elements span:nth-child(5) { top: 100%; left: 90%; animation-delay: 5s; width: 30px; height: 30px; }
+
+@keyframes float {
+  0% { transform: translateY(0) scale(1); opacity: 0.8; }
+  100% { transform: translateY(-120vh) scale(1.5); opacity: 0; }
+}
+
+/* Floating tech icons */
+.floating-icons {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.floating-icons i {
+  position: absolute;
+  font-size: 3.5rem;
+  color: rgba(56, 119, 255, 0.4);
+  text-shadow: 0 0 15px rgba(56, 119, 255, 0.25);
+  animation-name: floatUp, pulse;
+  animation-timing-function: linear, ease-in-out;
+  animation-iteration-count: infinite, infinite;
+  user-select: none;
+}
+
+/* Individual icon positions, delays, and durations */
+.floating-icons i:nth-child(1) {
+  top: 90%; left: 10%;
+  animation-delay: 0s, 0s;
+  animation-duration: 32s, 6s;
+}
+.floating-icons i:nth-child(2) {
+  top: 80%; left: 30%;
+  animation-delay: 4s, 1s;
+  animation-duration: 28s, 6s;
+}
+.floating-icons i:nth-child(3) {
+  top: 95%; left: 50%;
+  animation-delay: 2s, 2s;
+  animation-duration: 30s, 6s;
+}
+.floating-icons i:nth-child(4) {
+  top: 85%; left: 70%;
+  animation-delay: 6s, 1.5s;
+  animation-duration: 33s, 6s;
+}
+.floating-icons i:nth-child(5) {
+  top: 100%; left: 85%;
+  animation-delay: 3s, 0s;
+  animation-duration: 31s, 6s;
+}
+.floating-icons i:nth-child(6) {
+  top: 90%; left: 95%;
+  animation-delay: 5s, 2s;
+  animation-duration: 27s, 6s;
+}
+.floating-icons i:nth-child(7) {
+  top: 105%; left: 20%;
+  animation-delay: 1s, 1s;
+  animation-duration: 29s, 6s;
+}
+.floating-icons i:nth-child(8) {
+  top: 110%; left: 40%;
+  animation-delay: 7s, 0.5s;
+  animation-duration: 35s, 6s;
+}
+.floating-icons i:nth-child(9) {
+  top: 98%; left: 60%;
+  animation-delay: 2.5s, 1.5s;
+  animation-duration: 30s, 6s;
+}
+.floating-icons i:nth-child(10) {
+  top: 102%; left: 75%;
+  animation-delay: 4.5s, 2s;
+  animation-duration: 34s, 6s;
+}
+.floating-icons i:nth-child(11) {
+  top: 100%; left: 5%;
+  animation-delay: 6.5s, 0.3s;
+  animation-duration: 31s, 6s;
+}
+
+/* Animation Keyframes */
+@keyframes floatUp {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0.4; }
+  100% { transform: translateY(-140vh) rotate(360deg); opacity: 0; }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
+/* Highlight for the new ML project card */
+.project-card.ml-model {
+  border-left-color: #5DB9EE;
+  box-shadow: 0 0 20px #5DB9EE;
+  background: linear-gradient(135deg, #1a1a1a 0%, #252525 100%);
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+.project-card.ml-model:hover {
+  box-shadow: 0 0 30px #5DB9EE, 0 0 40px #3877FF;
+  transform: translateY(-8px);
+}
