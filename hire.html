@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hire Me — Saket Saurabh</title>
+<meta property="og:title" content="Hire Me — Saket Saurabh" />
+<meta property="og:description" content="Get in touch with Saket Saurabh about ML/CV internship or project opportunities." />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -26,7 +29,7 @@
     <p class="page-sub">Drop your details below and I'll get back to you.</p>
   </div>
 
-  <div id="res"></div>
+  <div id="res" role="status" aria-live="polite"></div>
 
   <form id="form" action="#" method="post">
     <div class="input-container">
@@ -49,10 +52,20 @@
       <button name="btn" type="submit">Send message</button>
     </div>
   </form>
+
+  <footer class="site-footer">
+    <span>&copy; 2026 Saket Saurabh</span>
+    <div class="footer-links">
+      <a href="mailto:saketsaurabh07@example.com" aria-label="Email Saket Saurabh">saketsaurabh07@example.com</a>
+      <a href="https://www.linkedin.com/in/saket-saurabh-012956291" target="_blank" aria-label="LinkedIn profile">LinkedIn</a>
+      <a href="https://github.com/SAKET-SAURABH-07" target="_blank" aria-label="GitHub profile">GitHub</a>
+    </div>
+  </footer>
 </div>
 
 <script>
-  let url = 'https://script.google.com/macros/s/AKfycbznovw_vfCigj_We1rg3h7d0xtyz2y7D0Jp6a4Baa5M6fmMpmoiv-kq0Wn_z8qnL_Fq/exec';
+  // Replace with your deployed backend URL, e.g. "https://your-app.onrender.com/api/contact"
+  let url = 'https://YOUR-BACKEND-URL/api/contact';
   let form = document.querySelector('#form');
 
   form.addEventListener("submit", (e) => {
