@@ -64,8 +64,7 @@
 </div>
 
 <script>
-  // Replace with your deployed backend URL, e.g. "https://your-app.onrender.com/api/contact"
-  let url = 'https://saket-portfolio-backend-av1d.onrender.com/api/contact';
+  let url = 'https://formspree.io/f/xdarbdwg'; // paste your real Formspree endpoint here
   let form = document.querySelector('#form');
 
   form.addEventListener("submit", (e) => {
@@ -74,11 +73,20 @@
     submitButton.textContent = "Sending…";
 
     let d = new FormData(form);
-    fetch(url, { method: "POST", body: d })
-      .then((res) => res.text())
-      .then((finalRes) => {
+    fetch(url, {
+      method: "POST",
+      body: d,
+      headers: { "Accept": "application/json" }
+    })
+      .then((res) => res.json())
+      .then((data) => {
         submitButton.textContent = "Send message";
-        document.getElementById("res").textContent = finalRes;
+        if (data.ok) {
+          document.getElementById("res").textContent = "Thanks! Your message has been received — I'll get back to you soon.";
+          form.reset();
+        } else {
+          document.getElementById("res").textContent = "Something went wrong — try again.";
+        }
       })
       .catch((error) => {
         submitButton.textContent = "Send message";
