@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hire Me — Saket Saurabh</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="hire.css">
+</head>
+<body>
+<div class="page-shell narrow">
+  <ul class="navlist">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="interests.html">Interests</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="skills.html">Skills</a></li>
+    <li><a href="project.html">Projects</a></li>
+  </ul>
+
+  <div class="page-header">
+    <p class="eyebrow">Let's talk</p>
+    <h1 class="page-title">Get in touch.</h1>
+    <p class="page-sub">Drop your details below and I'll get back to you.</p>
+  </div>
+
+  <div id="res"></div>
+
+  <form id="form" action="#" method="post">
+    <div class="input-container">
+      <input type="text" id="name" name="name" placeholder=" " required autocomplete="off">
+      <label for="name">Your Name</label>
+    </div>
+    <div class="input-container">
+      <input type="email" id="email" name="email" placeholder=" " required autocomplete="off">
+      <label for="email">Email</label>
+    </div>
+    <div class="input-container">
+      <input type="text" id="about" name="about" placeholder=" " required autocomplete="off">
+      <label for="about">About</label>
+    </div>
+    <div class="input-container">
+      <input type="text" id="message" name="message" placeholder=" " required autocomplete="off">
+      <label for="message">Message</label>
+    </div>
+    <div class="submit-container">
+      <button name="btn" type="submit">Send message</button>
+    </div>
+  </form>
+</div>
+
+<script>
+  let url = 'https://script.google.com/macros/s/AKfycbznovw_vfCigj_We1rg3h7d0xtyz2y7D0Jp6a4Baa5M6fmMpmoiv-kq0Wn_z8qnL_Fq/exec';
+  let form = document.querySelector('#form');
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    let submitButton = form.querySelector('[name="btn"]');
+    submitButton.textContent = "Sending…";
+
+    let d = new FormData(form);
+    fetch(url, { method: "POST", body: d })
+      .then((res) => res.text())
+      .then((finalRes) => {
+        submitButton.textContent = "Send message";
+        document.getElementById("res").textContent = finalRes;
+      })
+      .catch((error) => {
+        submitButton.textContent = "Send message";
+        document.getElementById("res").textContent = "Something went wrong — try again.";
+        console.error('Error:', error);
+      });
+  });
+</script>
+</body>
+</html>

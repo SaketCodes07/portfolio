@@ -1,0 +1,60 @@
+.page-shell.narrow{ max-width: 560px; }
+
+#res{
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--accent);
+  min-height: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+form{ display: flex; flex-direction: column; gap: 1.3rem; margin-top: 1rem; }
+
+.input-container{ position: relative; }
+.input-container input{
+  width: 100%;
+  padding: 1rem 1rem 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--ink-soft);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.25s ease;
+}
+.input-container input:focus{ border-color: var(--accent); }
+
+.input-container label{
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  pointer-events: none;
+  transition: all 0.2s ease;
+  font-family: var(--font-body);
+}
+.input-container input:focus ~ label,
+.input-container input:not(:placeholder-shown) ~ label{
+  top: 0.4rem;
+  font-size: 0.7rem;
+  color: var(--accent);
+}
+
+.submit-container{ margin-top: 0.5rem; }
+.submit-container button{
+  width: 100%;
+  background: linear-gradient(100deg, var(--accent), var(--violet));
+  border: none;
+  border-radius: 8px;
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-weight: 600;
+  padding: 0.95rem 1.5rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.submit-container button:hover{ transform: translateY(-2px); box-shadow: 0 14px 30px -10px var(--accent); }
+.submit-container button:active{ transform: translateY(0) scale(0.98); }

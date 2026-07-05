@@ -1,0 +1,60 @@
+.btn-download{
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-top: 1.3rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink);
+  background: var(--accent);
+  padding: 0.75rem 1.3rem;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.btn-download:hover{ transform: translateY(-2px); box-shadow: 0 12px 26px -10px var(--accent); }
+
+.skills-grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2rem;
+  margin-top: 2.6rem;
+}
+.skill-card.wide{ grid-column: 1 / -1; }
+.skill-card h3{
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0 0 1rem;
+  color: var(--text-primary);
+}
+
+.chip-row{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.skill-chip{
+  position: static;
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  color: var(--text-secondary);
+  background: rgba(255,255,255,0.02);
+  animation: none;
+}
+.skill-chip-accent{ border-color: rgba(94,234,212,0.35); color: var(--accent); }
+.skill-chip-violet{ border-color: rgba(124,111,240,0.35); color: var(--violet); }
+
+.footer-note{ margin-top: 2.6rem; }
+.footer-note a{ color: var(--accent); text-decoration: none; }
+.footer-note a:hover{ text-decoration: underline; }
+
+@media (max-width: 700px){
+  .skills-grid{ grid-template-columns: 1fr; }
+}

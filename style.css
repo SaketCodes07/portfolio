@@ -1,0 +1,622 @@
+/* ============================================
+   Tokens
+   ============================================ */
+:root {
+  --ink: #0b0e14;
+  --ink-soft: #11151f;
+  --text-primary: #e8eaed;
+  --text-secondary: #8b92a5;
+  --accent: #5eead4;
+  --accent-dim: rgba(94, 234, 212, 0.14);
+  --violet: #7c6ff0;
+  --violet-dim: rgba(124, 111, 240, 0.16);
+  --border: rgba(232, 234, 237, 0.08);
+
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+html, body {
+  height: 100%;
+  background: var(--ink);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+}
+
+/* ============================================
+   Ambient background
+   ============================================ */
+body {
+  background-image:
+    radial-gradient(circle at 78% 30%, var(--violet-dim), transparent 45%),
+    radial-gradient(circle at 15% 80%, var(--accent-dim), transparent 40%);
+  background-attachment: fixed;
+}
+
+/* ============================================
+   Layout shell
+   ============================================ */
+.portfolio-container {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 6vw;
+  isolation: isolate;
+}
+
+/* ============================================
+   Nav
+   ============================================ */
+.navlist {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 2rem 0;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  opacity: 0;
+  animation: dropIn 0.6s 0.1s ease forwards;
+}
+
+.navlist li {
+  display: flex;
+}
+
+.navlist a,
+.navlist button {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  position: relative;
+  transition: color 0.25s ease, background 0.25s ease;
+}
+
+.navlist a::before,
+.navlist button::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 999px;
+  background: var(--accent-dim);
+  transform: scale(0.85);
+  opacity: 0;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  z-index: -1;
+}
+
+.navlist a:hover,
+.navlist button:hover {
+  color: var(--text-primary);
+}
+
+.navlist a:hover::before,
+.navlist button:hover::before {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.navlist a.active {
+  color: var(--ink);
+  background: var(--accent);
+  font-weight: 500;
+}
+
+.navlist a.active::before {
+  display: none;
+}
+
+/* ============================================
+   Hero layout
+   ============================================ */
+.left-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  padding-bottom: 4rem;
+}
+
+.right-container {
+  position: absolute;
+  top: 0;
+  right: 6vw;
+  bottom: 0;
+  width: min(38vw, 460px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+/* ============================================
+   Social icons
+   ============================================ */
+.icons {
+  display: flex;
+  gap: 0.9rem;
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  animation: fadeUp 0.6s 0.5s ease forwards;
+}
+
+.icons a {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.icons a:hover {
+  color: var(--ink);
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: translateY(-3px);
+}
+
+/* ============================================
+   Content
+   ============================================ */
+.intro {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.9rem;
+  opacity: 0;
+  animation: fadeUp 0.6s 0.65s ease forwards;
+}
+
+.intro span {
+  color: var(--accent);
+}
+
+h1 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2.6rem, 6vw, 4.4rem);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.6rem;
+  opacity: 0;
+  animation: fadeUp 0.7s 0.8s ease forwards;
+}
+
+.cursor {
+  display: inline-block;
+  color: var(--accent);
+  animation: blink 1s step-end infinite;
+  font-weight: 500;
+}
+
+.detail {
+  max-width: 480px;
+  color: var(--text-secondary);
+  font-size: 1.02rem;
+  line-height: 1.7;
+  font-style: italic;
+  border-left: 2px solid var(--violet);
+  padding-left: 1.1rem;
+  margin-bottom: 2.6rem;
+  opacity: 0;
+  animation: fadeUp 0.7s 1s ease forwards;
+}
+
+/* ============================================
+   Buttons
+   ============================================ */
+.btn-container {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeUp 0.7s 1.15s ease forwards;
+}
+
+.btn-container form {
+  display: inline-flex;
+}
+
+.btn-container button {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.85rem 1.8rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn-container button[type="submit"] {
+  background: var(--accent);
+  color: var(--ink);
+}
+
+.btn-container button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px -8px var(--accent);
+}
+
+.projectbutton {
+  background: transparent;
+  color: var(--text-primary);
+  border-color: var(--border);
+}
+
+.projectbutton::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0%;
+  background: var(--violet);
+  transition: width 0.3s ease;
+}
+
+.projectbutton:hover {
+  border-color: var(--violet);
+  transform: translateY(-2px);
+}
+
+.projectbutton:hover::after {
+  width: 100%;
+}
+
+.btn-container button:active {
+  transform: translateY(0) scale(0.97);
+}
+
+/* ============================================
+   Signature element: orbit scene
+   ============================================ */
+.orbit-scene {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  aspect-ratio: 1 / 1;
+  opacity: 0;
+  animation: fadeUp 0.9s 0.5s ease forwards;
+}
+
+.orbit-ring {
+  position: absolute;
+  inset: 0;
+  border: 1px dashed var(--border);
+  border-radius: 50%;
+}
+
+.ring-1 {
+  inset: 12%;
+  animation: spin 14s linear infinite;
+}
+
+.ring-2 {
+  inset: 0%;
+  animation: spin 22s linear infinite reverse;
+  border-color: rgba(124, 111, 240, 0.18);
+}
+
+.ring-3 {
+  inset: -14%;
+  animation: spin 30s linear infinite;
+}
+
+.orbit-dot {
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 12px 2px var(--accent);
+  transform: translateX(-50%);
+}
+
+.ring-2 .orbit-dot {
+  background: var(--violet);
+  box-shadow: 0 0 12px 2px var(--violet);
+  width: 6px;
+  height: 6px;
+}
+
+.ring-3 .orbit-dot {
+  width: 5px;
+  height: 5px;
+  opacity: 0.7;
+}
+
+.photo-frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 62%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--border);
+  box-shadow:
+    0 0 0 6px var(--ink),
+    0 0 0 7px var(--accent-dim),
+    0 25px 60px -20px rgba(0, 0, 0, 0.7);
+  animation: coreFloat 5s ease-in-out infinite;
+}
+
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: saturate(1.05) contrast(1.02);
+}
+
+.chip {
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  background: var(--ink-soft);
+  border: 1px solid var(--border);
+  padding: 0.35rem 0.6rem;
+  border-radius: 6px;
+  animation: float 6s ease-in-out infinite;
+}
+
+.chip-1 { top: 8%; right: 4%; animation-delay: 0.3s; }
+.chip-2 { bottom: 14%; left: -2%; animation-delay: 1.1s; color: var(--violet); }
+.chip-3 { top: 48%; right: -6%; animation-delay: 1.9s; color: var(--accent); }
+
+/* ============================================
+   Legacy decorative circles (kept, repurposed as soft glow) — hidden behind orbit on desktop, ambient on mobile
+   ============================================ */
+.design {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.design .circle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  opacity: 0.5;
+}
+
+.design .circle:nth-child(1) {
+  width: 360px;
+  height: 360px;
+  background: var(--accent-dim);
+  top: -100px;
+  left: -120px;
+}
+
+.design .circle:nth-child(2) {
+  width: 420px;
+  height: 420px;
+  background: var(--violet-dim);
+  bottom: -160px;
+  right: 10%;
+}
+
+.loader {
+  display: none;
+}
+
+/* ============================================
+   Keyframes
+   ============================================ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes dropIn {
+  from { opacity: 0; transform: translateY(-12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  50.01%, 100% { opacity: 0; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes coreFloat {
+  0%, 100% { transform: translate(-50%, -50%) translateY(0); }
+  50% { transform: translate(-50%, -50%) translateY(-10px); }
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+@media (max-width: 980px) {
+  .portfolio-container {
+    padding: 0 6vw;
+  }
+
+  .right-container {
+    position: static;
+    width: 100%;
+    margin-top: 2rem;
+    padding-bottom: 3rem;
+  }
+
+  .orbit-scene {
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .left-container {
+    padding-bottom: 1rem;
+  }
+
+  .detail {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 560px) {
+  .navlist {
+    flex-wrap: wrap;
+    gap: 0.3rem;
+  }
+
+  h1 {
+    font-size: clamp(2.1rem, 9vw, 2.8rem);
+  }
+
+  .btn-container {
+    width: 100%;
+  }
+
+  .btn-container button {
+    flex: 1;
+    text-align: center;
+  }
+}
+
+/* ============================================
+   Focus visibility
+   ============================================ */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+/* ============================================
+   Shared subpage system (about / interests / skills / projects / hire)
+   ============================================ */
+.page-shell{
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 6vw 6rem;
+  z-index: 2;
+}
+
+.page-header{
+  padding-top: 1rem;
+  margin-bottom: 2.6rem;
+  opacity: 0;
+  animation: fadeUp 0.6s 0.15s ease forwards;
+}
+
+.eyebrow{
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.1rem;
+}
+.eyebrow::before{
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  border-radius: 1px;
+  box-shadow: 0 0 8px var(--accent);
+}
+
+.page-title{
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2rem, 4.5vw, 3.1rem);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.9rem;
+  color: var(--text-primary);
+}
+.page-title .accent-text{ color: var(--accent); }
+
+.page-sub{
+  color: var(--text-secondary);
+  max-width: 62ch;
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+.tag-row{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.4rem;
+}
+.tag{
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  padding: 0.45rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-primary);
+  background: rgba(255,255,255,0.02);
+}
+.tag.tag-accent{ border-color: rgba(94,234,212,0.35); color: var(--accent); }
+.tag.tag-violet{ border-color: rgba(124,111,240,0.35); color: var(--violet); }
+
+.card{
+  background: var(--ink-soft);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.6rem 1.5rem;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover{
+  transform: translateY(-4px);
+  border-color: rgba(94,234,212,0.35);
+  box-shadow: 0 16px 40px -20px rgba(94,234,212,0.25);
+}
+
+.navlist a.active{
+  color: var(--ink);
+  background: var(--accent);
+  font-weight: 500;
+}

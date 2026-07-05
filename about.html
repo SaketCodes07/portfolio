@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>About — Saket Saurabh</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="about.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+<div class="page-shell">
+  <ul class="navlist">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="interests.html">Interests</a></li>
+    <li><a href="about.html" class="active">About</a></li>
+    <li><a href="skills.html">Skills</a></li>
+    <li><a href="project.html">Projects</a></li>
+  </ul>
+
+  <div class="about-grid">
+    <div class="content">
+      <p class="eyebrow">System // About.Saket</p>
+      <h1 class="page-title">Hey, I'm <span class="accent-text">Saket Saurabh</span>.</h1>
+
+      <p class="text">
+        I'm a <strong>Machine Learning &amp; Computer Vision developer</strong> pursuing my <strong>B.Tech in Information Technology</strong> at GTBIT, now in my <strong>third year</strong>. Most of my time goes into training models, wiring up pipelines, and figuring out why they break.
+      </p>
+      <p class="text">
+        My interest in programming started with a simple pull: solving problems and shipping things that make real tasks easier. These days that pull points mostly at <span class="highlight">Machine Learning</span>, <span class="highlight">Computer Vision</span>, and <span class="highlight">DSA</span> — with Python tying it all together.
+      </p>
+      <p class="text">
+        Recent work includes a YOLOv8x-based signboard recognition system built during my industrial training, and an ML web app that predicts SGPA/CGPA from 900+ student records. Beyond academics, I'm usually deep in a coding challenge or reading about what's new in the field.
+      </p>
+      <p class="text">Connect with me on LinkedIn to see what I'm building next.</p>
+
+      <div class="tag-row">
+        <span class="tag tag-accent">Machine Learning</span>
+        <span class="tag tag-violet">Computer Vision</span>
+        <span class="tag">DSA</span>
+        <span class="tag">Python</span>
+      </div>
+
+      <a href="https://www.linkedin.com/in/saket-saurabh-012956291" class="btn-linkedin" target="_blank" title="LinkedIn Profile">
+        <i class="fab fa-linkedin"></i> Connect on LinkedIn
+      </a>
+    </div>
+
+    <div id="app">
+      <div class="frame">
+        <div class="corner tl"></div>
+        <div class="corner tr"></div>
+        <div class="corner bl"></div>
+        <div class="corner br"></div>
+
+        <p class="hire-text">Interested in hiring me?</p>
+        <p class="ht2">Confirm below to lock it in.</p>
+
+        <label class="checker">
+          <input class="checkbox" type="checkbox" id="hireBox" />
+          <div class="check-bg"></div>
+          <div class="checkmark">
+            <svg viewBox="0 0 100 100" aria-label="Checkmark">
+              <path d="M20,55 L40,75 L77,27" fill="none" stroke="#0b0e14" stroke-width="15" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+        </label>
+
+        <p class="readout" id="readout">STATUS: <span class="val">awaiting input</span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const box = document.getElementById('hireBox');
+  const readout = document.getElementById('readout');
+  box.addEventListener('change', () => {
+    readout.innerHTML = box.checked
+      ? 'MATCH: <span class="val" style="color:#5eead4">98% confidence</span>'
+      : 'STATUS: <span class="val">awaiting input</span>';
+  });
+</script>
+</body>
+</html>
