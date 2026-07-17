@@ -1,54 +1,150 @@
 .projects-grid{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.3rem;
-  margin-top: 2.4rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
 }
 
-.project-card{ position: relative; display: flex; flex-direction: column; gap: 0.6rem; }
-.project-card.featured{ border-color: rgba(94,234,212,0.3); }
+
+/* Project Card */
+.project-card{
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+
+  transition: 
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+/* Card hover */
+.project-card:hover{
+  transform: translateY(-6px);
+}
+
+
+/* Featured project highlight */
+.project-card.featured{
+  border-color: rgba(94,234,212,0.35);
+}
+
+
+/* Featured label */
 .project-tag{
   position: absolute;
-  top: -10px; right: 1.2rem;
+  top: -11px;
+  right: 1.2rem;
+
   font-family: var(--font-mono);
   font-size: 0.68rem;
-  letter-spacing: 0.06em;
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
   text-transform: uppercase;
+
   background: var(--accent);
   color: var(--ink);
-  padding: 0.25rem 0.6rem;
+
+  padding: 0.28rem 0.7rem;
   border-radius: 999px;
-  font-weight: 700;
 }
+
+
+/* Project title */
 .project-card h3{
   font-family: var(--font-display);
-  font-size: 1.15rem;
+
+  font-size: 1.2rem;
   font-weight: 700;
+
   color: var(--text-primary);
-  margin: 0.2rem 0 0;
+
+  margin: 0.25rem 0 0;
 }
+
+
+/* Technology stack + date */
 .project-meta{
   font-family: var(--font-mono);
+
   font-size: 0.75rem;
+
   color: var(--accent);
+
   margin: 0;
+
+  line-height: 1.5;
 }
+
+
+/* Project description */
 .project-card p:not(.project-meta){
+
   color: var(--text-secondary);
-  font-size: 0.9rem;
-  line-height: 1.6;
+
+  font-size: 0.92rem;
+
+  line-height: 1.65;
+
   margin: 0;
 }
+
+
+/* Links */
 .project-card a{
+
   font-family: var(--font-mono);
+
   font-size: 0.82rem;
+
   color: var(--violet);
+
   text-decoration: none;
-  margin-top: 0.3rem;
+
+  margin-top: auto;
+
+  padding-top: 0.4rem;
 }
-.project-card a:hover{ text-decoration: underline; }
+
+
+.project-card a:hover{
+  text-decoration: underline;
+}
+
+
+/* Role text */
 .project-role{
+
   font-family: var(--font-mono);
+
   font-size: 0.78rem;
+
   color: var(--text-secondary);
+
+  margin-top: 0.15rem;
+}
+
+
+/* Mobile optimization */
+@media(max-width:700px){
+
+  .projects-grid{
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+
+  .project-card h3{
+    font-size: 1.1rem;
+  }
+
+
+  .project-card p:not(.project-meta){
+    font-size: 0.88rem;
+  }
+
 }
